@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<title>조회페이지</title>
+</head>
+<body>
+	<div class="container">
+		<br><br><br>
+		<h1 align="center">조회페이지</h1>
+		<hr>
+		<button class="btn btn-success" onclick="location.href='/'">메인페이지 가기</button>
+		<hr>
+		<label for="title">글 제목</label> 
+		<input class="form-control" type="text" th:value="${boards.title}" readonly="readonly"><br> 
+		<label for="nickname">닉네임</label> 
+		<input class="form-control" type="text" th:value="${boards.nickname}" readonly="readonly"><br> 
+		<label for="content">글 내용</label>
+		<textarea class="form-control" rows="5" th:text="${boards.content}" readonly="readonly"></textarea><br>
+		<button class="btn btn-primary" th:onclick="|location.href='@{/board/update/{id}(id=${boards.id})}'|">수정</button>
+		<button class="btn btn-danger" th:onclick="|location.href='@{/board/delete/{id}(id=${boards.id})}'|">삭제</button>
+	</div>
+</body>
+</html>
